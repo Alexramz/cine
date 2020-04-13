@@ -15,7 +15,9 @@ class Navbar extends Component {
     imagenes: [],
     buscar: ""
   }
-
+  componentWillMount(){
+    this.consultarApi()
+  }
   consultarApi=()=>{
     const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${this.state.buscar}`;
     console.log(url);
