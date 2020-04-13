@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-import Lorem from "../../Lorem/Lorem";
 import Imagen from "../Imagen";
-import Tabla from "../Tabla";
-import BreadCrumbs from "./BreadCrumbs"; 
 
 const styles = {
     principal:{
@@ -16,16 +13,14 @@ const styles = {
 class Principal extends Component{
 
         state={
-            list: []
+            list: this.props.list
         }
-        componentDidMount(){
-            console.log("DidMount")
+        /*componentDidMount(){
             //this.setState({ list : this.props.list})
         }
         componentWillMount(){
-            console.log("WillMount")
-            this.setState({ list : this.props.list})
-        }
+            //this.setState({ list : this.props.list})
+        }*/
 
         render(){
             return(
