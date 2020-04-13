@@ -25,13 +25,13 @@ class Principal extends Component{
         render(){
             return(
                 <div className="row" style={styles.principal}> 
-                {this.props.list.map(item=>(
+
+                    {this.props.list.map(item=>(
                     <Imagen
                     key={item.id}
                     usuario={item}
                     />
                     ))}
-
                 </div>
             );
         };

@@ -34,22 +34,23 @@ class Wrap extends Component{
             <BreadCrumbs
             buscar= {buscar}
             />
+            <div className="row justify-content-center">
+    
+            <Paginacion/>
+        
             
-            <div align="center" >
-            This is some text in a div element!
-            <Paginacion/>
-            </div>
-
-            <Paginacion/>
-
             {(list.length === 0)?
-            <React.Fragment></React.Fragment>
+            <React.Fragment>
+            </React.Fragment>
             :<Principal
             list={list}
             objNavbar={objNavbar}
             />}
 
             <Paginacion/>
+            
+            </div>
+            
             </div>
             );   
     }

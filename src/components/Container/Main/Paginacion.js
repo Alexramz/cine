@@ -5,7 +5,7 @@ class Paginacion extends Component{
     render(){
         return(
             
-                <div className="container">     
+                <div className="row">     
                     <ul className="pagination">
                     <li className="page-item disabled">
                     <a className="page-link" href="//#region ">&laquo;</a>
