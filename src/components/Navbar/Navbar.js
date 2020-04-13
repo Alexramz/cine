@@ -13,7 +13,8 @@ class Navbar extends Component {
     series: "Series",
     about: "About",
     imagenes: [],
-    buscar: ""
+    buscar: "",
+    isreact: false
   }
   componentWillMount(){
     this.consultarApi()
@@ -37,11 +38,15 @@ class Navbar extends Component {
     })
   } 
 
+  onLogo=(termino)=>{
+   this.setState({buscar: termino},()=>{this.consultarApi();})
+  }
+
   render(){
     
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a className="navbar-brand" href="#"><Logo/></a>
+  <a className="navbar-brand" href="#"><Logo onlogo={this.onLogo}/></a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
