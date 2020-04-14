@@ -7,50 +7,86 @@ import Paginacion from "./Paginacion";
 class Wrap extends Component{
 
     state={
-        objNavbar: [],
+
         list: [],
         buscar: "",
+        pagina: "1"
         
     }
+    componentWillMount(){
+        this.consultarApi()
+      }
    
-    obtenerImagenes=(imagenes)=>{
-        this.setState({ 
-                        list: imagenes.imagenes,
-                        objNavbar: imagenes,    
-                        buscar: imagenes.buscar
-        });
-           
-    }
+    consultarApi=()=>{
+        const { buscar, pagina } = this.state
+        
+        const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=30&page=${pagina}`;
+        
+        fetch(url)
+        .then(resp=>resp.json())
+        .then(res=>this.setState({list: res.hits}));
+      }
 
+      datosBusqueda = (termino) =>{
+          this.setState({buscar: termino},()=>{this.consultarApi();})
+      } 
+
+      onlogo=(termino)=>{
+        this.setState({buscar: termino},()=>{this.consultarApi();})
+       }
+
+       paginaAnterior=()=>{
+           
+        let pagina = this.state.pagina;
+        
+        if(pagina === 1){
+            //no consulta paginas menores a 1
+        }else{
+                pagina --
+                this.setState({pagina: pagina--},
+                    ()=>{this.consultarApi()})
+        }
+
+        }
+       
+
+       paginaSiguiente=()=>{
+        let pagina = this.state.pagina;
+        pagina ++
+        this.setState({pagina: pagina},
+            ()=>{this.consultarApi()})
+       }
+    
     render(){
         const { list, buscar, objNavbar } = this.state;
         return(
             <div>
-           
-            <Navbar
-             datosBusqueda={this.obtenerImagenes}
-            />
-            
-            <BreadCrumbs
-            buscar= {buscar}
-            />
-            <div className="row justify-content-center">
-    
-            <Paginacion/>
-        
-            
-            {(list.length === 0)?
-            <React.Fragment>
-            </React.Fragment>
-            :<Principal
-            list={list}
-            objNavbar={objNavbar}
-            />}
-
-            <Paginacion/>
-            
-            </div>
-            
+                <Navbar
+                    datosBusqueda={this.datosBusqueda}
+                    onlogo={this.onlogo}
+                />
+                <BreadCrumbs
+                     buscar= {buscar}
+                />
+                {(list.length === 0)?
+                    <React.Fragment>
+                    </React.Fragment>
+                    :
+                    <div className="row justify-content-center">
+                        <Paginacion
+                        paginaAnterior={this.paginaAnterior}
+                        paginaSiguiente={this.paginaSiguiente}
+                        />
+                        <Principal
+                        list={list}
+                        objNavbar={objNavbar}
+                        />
+                        <Paginacion
+                        paginaAnterior={this.paginaAnterior}
+                        paginaSiguiente={this.paginaSiguiente}
+                        />
+                    </div>
+                }
             </div>
             );   
     }

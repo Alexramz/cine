@@ -3,12 +3,13 @@ import React,{ Component } from "react";
 class Paginacion extends Component{
 
     render(){
+        
         return(
             
                 <div className="row">     
                     <ul className="pagination">
-                    <li className="page-item disabled">
-                    <a className="page-link" href="//#region ">&laquo;</a>
+                    <li className="page-item">
+                    <a className="page-link" href="#" onClick={this.props.paginaAnterior}>&laquo;</a>
                     </li>
                     <li className="page-item active">
                     <a className="page-link" href="//#region ">1</a>
@@ -26,7 +27,7 @@ class Paginacion extends Component{
                     <a className="page-link" href="//#region ">5</a>
                     </li>
                     <li className="page-item">
-                    <a className="page-link" href="//#region ">&raquo;</a>
+                    <a className="page-link" href="#" onClick={this.props.paginaSiguiente}>&raquo;</a>
                     </li>
                     </ul>
                 </div>
