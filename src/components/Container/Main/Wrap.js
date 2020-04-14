@@ -28,27 +28,22 @@ class Wrap extends Component{
       }
 
       datosBusqueda = (termino) =>{
-          this.setState({buscar: termino},()=>{this.consultarApi();})
+          this.setState({buscar: termino, pagina: 1},()=>{this.consultarApi();})
       } 
-
-      onlogo=(termino)=>{
-        this.setState({buscar: termino},()=>{this.consultarApi();})
-       }
 
        paginaAnterior=()=>{
            
-        let pagina = this.state.pagina;
-        
-        if(pagina === 1){
-            //no consulta paginas menores a 1
-        }else{
-                pagina --
-                this.setState({pagina: pagina--},
-                    ()=>{this.consultarApi()})
-        }
+            let pagina = this.state.pagina;
+            
+            if(pagina === 1){
+                //no consulta paginas menores a 1
+            }else{
+                    pagina --
+                    this.setState({pagina: pagina--},
+                        ()=>{this.consultarApi()})
+            }
 
         }
-       
 
        paginaSiguiente=()=>{
         let pagina = this.state.pagina;
@@ -58,7 +53,7 @@ class Wrap extends Component{
        }
     
     render(){
-        const { list, buscar, objNavbar } = this.state;
+        const { list, buscar, pagina } = this.state;
         return(
             <div>
                 <Navbar
@@ -66,7 +61,9 @@ class Wrap extends Component{
                     onlogo={this.onlogo}
                 />
                 <BreadCrumbs
+                     datosBusqueda={this.datosBusqueda}
                      buscar= {buscar}
+                     pagina= {pagina}
                 />
                 {(list.length === 0)?
                     <React.Fragment>
@@ -79,7 +76,6 @@ class Wrap extends Component{
                         />
                         <Principal
                         list={list}
-                        objNavbar={objNavbar}
                         />
                         <Paginacion
                         paginaAnterior={this.paginaAnterior}
