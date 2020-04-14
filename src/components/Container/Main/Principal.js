@@ -17,14 +17,16 @@ class Principal extends Component{
         }
         
         render(){
-            const { list } = this.props
+            const { list, idMovie } = this.props
             return(
                 <div className="row" style={styles.principal}> 
 
                     {list.map(item=>(
                     <Imagen
                     key={item.id}
+                    id={item.id}
                     usuario={item}
+                    idMovie={idMovie}
                     />
                     ))}
                 </div>

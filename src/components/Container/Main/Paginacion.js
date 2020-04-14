@@ -3,7 +3,6 @@ import React,{ Component } from "react";
 class Paginacion extends Component{
 
     render(){
-        
         return(
             
                 <div className="row">     

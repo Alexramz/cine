@@ -3,6 +3,7 @@ import Navbar from "../../Navbar/Navbar";
 import Principal from "./Principal";
 import BreadCrumbs from "./BreadCrumbs";
 import Paginacion from "./Paginacion";
+import Movie from "./Movie";
 
 class Wrap extends Component{
 
@@ -10,7 +11,8 @@ class Wrap extends Component{
 
         list: [],
         buscar: "",
-        pagina: "1"
+        pagina: "1",
+        idMovie: ""
         
     }
     componentWillMount(){
@@ -51,7 +53,23 @@ class Wrap extends Component{
         this.setState({pagina: pagina},
             ()=>{this.consultarApi()})
        }
-    
+       
+       selectPage=()=>{
+        let idMovie = this.state.idMovie;
+        if(idMovie === ""){
+            //codigo mostrar todas peliculas
+            //alert("Mostrar todas peliculas")
+        }else{
+           // alert("mostrar pelicula selecionada "+idMovie)
+
+        }
+
+       }
+
+       idMovie=(idMovie)=>{
+           this.setState({idMovie: idMovie})
+       }
+
     render(){
         const { list, buscar, pagina } = this.state;
         return(
@@ -65,7 +83,10 @@ class Wrap extends Component{
                      buscar= {buscar}
                      pagina= {pagina}
                 />
-                {(list.length === 0)?
+                
+                {
+                this.selectPage
+                (list.length === 0)?
                     <React.Fragment>
                     </React.Fragment>
                     :
@@ -76,6 +97,7 @@ class Wrap extends Component{
                         />
                         <Principal
                         list={list}
+                        idMovie={this.idMovie}
                         />
                         <Paginacion
                         paginaAnterior={this.paginaAnterior}
