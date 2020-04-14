@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Imagen from "../Imagen";
 
 class Wrap extends Component{
+    
     mostrarImagenes =()=>{
-const imagenes = this.props.imagenes
+        const imagenes = this.props.imagenes
         console.log(imagenes)
 
         return(

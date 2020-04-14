@@ -55,23 +55,51 @@ class Wrap extends Component{
        }
        
        selectPage=()=>{
-        let idMovie = this.state.idMovie;
-        if(idMovie === ""){
-            //codigo mostrar todas peliculas
-            //alert("Mostrar todas peliculas")
-        }else{
-           // alert("mostrar pelicula selecionada "+idMovie)
+        const { list, buscar, pagina,idMovie } = this.state;
 
-        }
-
+            if(idMovie != ""){
+                return(
+                    <React.Fragment>
+                        <Movie/>
+                    </React.Fragment>
+                )
+            }else{
+                return(
+                    <React.Fragment>
+                        {                
+                            (list.length === 0)?
+                                <React.Fragment>
+                                </React.Fragment>
+                                :
+                                <React.Fragment>
+                                <div className="row justify-content-center">
+                                    <Paginacion
+                                    paginaAnterior={this.paginaAnterior}
+                                    paginaSiguiente={this.paginaSiguiente}
+                                    />
+                                    <Principal
+                                    list={list}
+                                    idMovie={this.idMovie}
+                                    />
+                                    <Paginacion
+                                    paginaAnterior={this.paginaAnterior}
+                                    paginaSiguiente={this.paginaSiguiente}
+                                    />
+                                </div>
+                                </React.Fragment>
+                         }
+                    </React.Fragment>
+                )
+            }
        }
 
        idMovie=(idMovie)=>{
            this.setState({idMovie: idMovie})
+           alert("Se Selecciono "+idMovie)
        }
 
     render(){
-        const { list, buscar, pagina } = this.state;
+        const { list, buscar, pagina,idMovie } = this.state;
         return(
             <div>
                 <Navbar
@@ -84,27 +112,10 @@ class Wrap extends Component{
                      pagina= {pagina}
                 />
                 
-                {
-                this.selectPage
-                (list.length === 0)?
-                    <React.Fragment>
-                    </React.Fragment>
-                    :
-                    <div className="row justify-content-center">
-                        <Paginacion
-                        paginaAnterior={this.paginaAnterior}
-                        paginaSiguiente={this.paginaSiguiente}
-                        />
-                        <Principal
-                        list={list}
-                        idMovie={this.idMovie}
-                        />
-                        <Paginacion
-                        paginaAnterior={this.paginaAnterior}
-                        paginaSiguiente={this.paginaSiguiente}
-                        />
-                    </div>
-                }
+                <React.Fragment>
+                        {this.selectPage()}
+                </React.Fragment>
+
             </div>
             );   
     }
