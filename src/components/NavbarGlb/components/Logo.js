@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
-import './App.css';
+import logo from '../images/logo.svg';
+import '../styles/App.css';
 
 class Logo extends Component {
 
@@ -9,6 +9,7 @@ class Logo extends Component {
       }
 
     render(){
+      const {none}=this.props;
     return (
           <img src={logo} alt="logo" width= "50" height="50" onClick={this.onlogo}/>
     );

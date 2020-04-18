@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../NavbarGlb/Navbar";
 import Principal from "./Principal";
 import BreadCrumbs from "./BreadCrumbs";
-import Paginacion from "./Paginacion";
-import Movie from "./Movie";
+import Paginacion from "../../paginacionGlb/Paginacion";
+import Movie from "../../movieGlb/Movie";
 
 class Wrap extends Component{
 
@@ -57,7 +57,7 @@ class Wrap extends Component{
        selectPage=()=>{
         const { list, buscar, pagina,idMovie } = this.state;
 
-            if(idMovie != ""){
+            if(idMovie !== ""){
                 return(
                     <React.Fragment>
                         <Movie/>
@@ -106,7 +106,6 @@ class Wrap extends Component{
             <div>
                 <Navbar
                     datosBusqueda={this.datosBusqueda}
-                    onlogo={this.onlogo}
                 />
                 <BreadCrumbs
                      datosBusqueda={this.datosBusqueda}

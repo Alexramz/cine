@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Wrap from "./Wrap";
+import WrapMain from "./WrapMain";
 
 class Container extends Component{
 
     render(){
         return(
-            <Wrap/>
+            <WrapMain/>
             );
     }
 }

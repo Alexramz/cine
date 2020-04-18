@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from "../Container/Main/Card";
+import Card from "../zOthers/Card";
 
 function Lorem() {
   return (

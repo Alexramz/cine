@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Imagen from "../Imagen";
+import Imagen from "./Imagen";
 
 const styles = {
     principal:{

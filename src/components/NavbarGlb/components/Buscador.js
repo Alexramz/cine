@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoLogin from "../../loginGlb/goLogin";
 
 class Buscador extends Component {
     
@@ -16,6 +17,7 @@ class Buscador extends Component {
             <form onSubmit={this.obtenerDatos} className="form-inline my-2 my-lg-0">
                 <button className="btn btn-info" type="submit">Search...</button>
                 <input ref={this.busquedaRef} className="form-control mr-sm-2" type="text" placeholder="Search"></input>
+                <GoLogin/>
             </form>    
             
         );

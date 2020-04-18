@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Logo from './Logo';
-import Dropdown from "./Dropdown";
-import Buscador from "./Buscador";
+import Logo from './components/Logo';
+import Dropdown from "./components/Dropdown";
+import Buscador from "./components/Buscador";
 
 class Navbar extends Component {
   state={
@@ -12,7 +12,7 @@ class Navbar extends Component {
     about: "About",
   }
   goHome=()=>{
-    this.props.datosBusqueda("react")
+    this.props.history.push("/")
   }
   render(){
     const {peliculas, genero, home, about}= this.state;
@@ -28,7 +28,7 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" onClick={this.goHome}>{home}<span className="sr-only">(current)</span></a>
+                <a className="nav-link" href="/">{home}<span className="sr-only">(current)</span></a>
               </li>
               <Dropdown
               nameDropdown={genero}
