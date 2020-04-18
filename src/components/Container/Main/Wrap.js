@@ -74,6 +74,7 @@ class Wrap extends Component{
                                 <React.Fragment>
                                 <div className="row justify-content-center">
                                     <Paginacion
+                                    pagina={pagina}
                                     paginaAnterior={this.paginaAnterior}
                                     paginaSiguiente={this.paginaSiguiente}
                                     />
@@ -82,6 +83,7 @@ class Wrap extends Component{
                                     idMovie={this.idMovie}
                                     />
                                     <Paginacion
+                                    pagina={pagina}
                                     paginaAnterior={this.paginaAnterior}
                                     paginaSiguiente={this.paginaSiguiente}
                                     />
