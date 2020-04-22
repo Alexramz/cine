@@ -1,21 +1,21 @@
 import React, {Component} from "react";
 import Navbar from "../NavbarGlb/Navbar";
 
-class Movie extends Component{
-
+class Movies extends Component {
+    
     datosBusqueda = (termino) =>{
         this.props.history.push("/")
-    }
-
+    } 
     render(){
-        return(
-            <React.Fragment>
-            <Navbar
+    return(
+        <React.Fragment>
+             <Navbar
                datosBusqueda={this.datosBusqueda}
                 />
-            <h1>desde movie</h1>
-            </React.Fragment>
-        )
+                <h1>desde Movies</h1>
+        </React.Fragment>
+        
+    );
     }
 }
-export default Movie;
+export default Movies;

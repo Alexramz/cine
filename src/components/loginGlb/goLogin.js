@@ -11,8 +11,8 @@ class Login extends Component{
         return(
            <React.Fragment>
               <li class="-ctas">
-                <a className="btn btn-success" href="/login">Log in</a>
-                <a className="btn btn-info">Sign up</a>
+                <a className="btn btn-success" href="/#/login">Log in</a>
+                <a className="btn btn-info" href="/#/sign-up">Sign up</a>
             </li>
            </React.Fragment>
         )

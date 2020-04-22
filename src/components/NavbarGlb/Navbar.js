@@ -7,7 +7,7 @@ class Navbar extends Component {
   state={
     home: "Home",
     genero: "Genero",
-    peliculas: "Peliculas",
+    peliculas: "Movies",
     series: "Series",
     about: "About",
   }

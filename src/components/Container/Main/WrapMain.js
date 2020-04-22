@@ -97,7 +97,7 @@ class Wrap extends Component{
 
        idMovie=(idMovie)=>{
            this.setState({idMovie: idMovie})
-           alert("Se Selecciono "+idMovie)
+        
        }
 
     render(){

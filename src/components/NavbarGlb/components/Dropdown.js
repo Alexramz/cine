@@ -13,7 +13,7 @@ class Dropdown extends Component {
           <a className="dropdown-item" href="//#region ">Mas Vistas</a>
           <a className="dropdown-item" href="//#region ">Ranking</a>
           <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="//#region ">{nameDropdown}</a>
+          <a className="dropdown-item" href={`/#/${nameDropdown}`}>{nameDropdown}</a>
         </div>
       </li>
     
