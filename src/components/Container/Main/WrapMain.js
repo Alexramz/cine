@@ -10,7 +10,7 @@ class Wrap extends Component{
     state={
 
         list: [],
-        buscar: "",
+        buscar: " ",
         pagina: "1",
         idMovie: ""
         
@@ -81,6 +81,7 @@ class Wrap extends Component{
                                     <Principal
                                     list={list}
                                     idMovie={this.idMovie}
+                                    buscar={this.state.buscar}
                                     />
                                     <Paginacion
                                     pagina={pagina}

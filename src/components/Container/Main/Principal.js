@@ -17,7 +17,7 @@ class Principal extends Component{
         }
         
         render(){
-            const { list, idMovie } = this.props
+            const { list, idMovie, buscar } = this.props
             return(
                 <div className="row" style={styles.principal}> 
 
@@ -27,6 +27,7 @@ class Principal extends Component{
                     id={item.id}
                     usuario={item}
                     idMovie={idMovie}
+                    buscar={buscar}
                     />
                     ))}
                 </div>

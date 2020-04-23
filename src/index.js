@@ -15,7 +15,7 @@ ReactDOM.render(
       <Route exact path="/" component={Container} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp}/>
-      <Route exact strict path="/movie/:id" component={Movie} />
+      <Route exact strict path="/movie/:search/:id" component={Movie} />
       <Route exact strict path="/movies/:id" component={Movies} />
     </Switch>
   </HashRouter>,

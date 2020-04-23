@@ -10,7 +10,7 @@ class Login extends Component{
     render(){
         return(
            <React.Fragment>
-              <li class="-ctas">
+              <li className="-ctas">
                 <a className="btn btn-success" href="/#/login">Log in</a>
                 <a className="btn btn-info" href="/#/sign-up">Sign up</a>
             </li>
