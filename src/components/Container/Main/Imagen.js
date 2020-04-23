@@ -18,7 +18,7 @@ return(
         <div>
             <p className="card-text">{usuario.likes} Me gusta</p>
             <p className="card-text">{usuario.views} Vistas</p>
-            <a className="btn btn-primary btn-block" rel="noopener noreferrer" href="/#/movie">Ver Imagen</a>
+            <a className="btn btn-primary btn-block" rel="noopener noreferrer" href={`/#/movie/${usuario.user}`}>Ver Imagen</a>
         </div>   
         </div>
     

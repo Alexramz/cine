@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Logo from './components/Logo';
 import Dropdown from "./components/Dropdown";
 import Buscador from "./components/Buscador";
+import DropdownGenero from "./components/DropdownGenero";
 
 class Navbar extends Component {
   state={
@@ -10,12 +11,13 @@ class Navbar extends Component {
     peliculas: "Movies",
     series: "Series",
     about: "About",
+    listGenero: ["Accion","Aventura","Biografia","Comedia","Documentales","Familiar","Animacion","Belico","Ciencia Ficcion","Crimen","Drama","Fantasia","Musical","Terror","Romance","Thriller"]
   }
   goHome=()=>{
     this.props.history.push("/")
   }
   render(){
-    const {peliculas, genero, home, about}= this.state;
+    const {peliculas, genero, home, about, listGenero}= this.state;
     const { datosBusqueda } = this.props;
     return (
       
@@ -30,9 +32,10 @@ class Navbar extends Component {
               <li className="nav-item active">
                 <a className="nav-link" href="/">{home}<span className="sr-only">(current)</span></a>
               </li>
-              <Dropdown
+              <DropdownGenero
               nameDropdown={genero}
-              />
+              listGenero={listGenero}
+              /> 
               <Dropdown
               nameDropdown={peliculas}
               /> 
