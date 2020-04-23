@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import Navbar from "../NavbarGlb/Navbar";
 import Video from "./components/Video";
+import Description from "./components/Description";
+import Comments from "./components/Comments";
 
 class Movie extends Component {
     state={
@@ -46,19 +48,17 @@ class Movie extends Component {
             />
         <br></br>
         <div className="row" style={styles.principal}>
-        
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <img tyle={styles.img} src={objMovie.userImageURL} className="card-img-top" alt="imagen" />  
-                </div>
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <h1>{objMovie.tags}</h1>
-                </div>
-        
+            <Description
+            styles = {styles}
+            objMovie= {objMovie}
+            />
         </div>
         <div className="row" style={styles.principal}>
-        
                 <Video/>
-        
+        </div>
+        <br></br>
+        <div className="row" style={styles.principal}>
+                <Comments/>
         </div>
             </React.Fragment>
         )
