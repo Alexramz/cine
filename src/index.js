@@ -7,12 +7,14 @@ import Login from "./components/loginGlb/Login";
 import Movie from "./components/movieGlb/Movie";
 import SignUp from "./components/signUpGlb/SignUp";
 import Movies from "./components/moviesGlb/movies";
+import WrapMain from "./components/Container/Main/WrapMain";
 const hist = createBrowserHistory();
 
 ReactDOM.render(
   <HashRouter history={hist}>
     <Switch>
-      <Route exact path="/" component={Container} />
+    <Route exact path="/" component={WrapMain} />
+      <Route exact path="/:query" component={WrapMain} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp}/>
       <Route exact strict path="/movie/:search/:id" component={Movie} />

@@ -3,16 +3,19 @@ import Navbar from "../NavbarGlb/Navbar";
 import Video from "./components/Video";
 import Description from "./components/Description";
 import Comments from "./components/Comments";
+import Related from "./components/Related";
 
 class Movie extends Component {
     state={
+        buscar: " ",
+        pagina: "1",
         objMovie: {}
     }
     componentWillMount(){
-        this.consultarApi()
+        this.consultarApiSingleMovie()
     }    
 
-    consultarApi=()=>{
+    consultarApiSingleMovie=()=>{
         const { match }=this.props;
         const id = match.params.id
         const buscar = match.params.search
@@ -23,16 +26,35 @@ class Movie extends Component {
         .then(res => this.setState({ objMovie: res.hits[0]}));
         
       }
-
+      
     datosBusqueda = (termino) =>{
         this.props.history.push("/")
     } 
+
+    /*consultarApi=()=>{
+        const { buscar, pagina, objMovie } = this.state
+        
+        const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=30&page=${pagina}`;
+        
+        fetch(url)
+        .then(resp=>resp.json())
+        .then(res=>this.setState({objMovie: res.hits}));
+
+        this.props.history.push(`/#/${objMovie}`)
+        //`/#/${objMovie}`
+      }*/
+
+      datosBusqueda = (termino) =>{
+        this.props.history.push(`/${termino}`)
+      } 
+
+
     render (){
         const { objMovie }=this.state;
         const styles = {
     
             img:{
-                 height: 200
+                 height: 400
             },
             principal:{
                 marginLeft: 100,
@@ -59,6 +81,10 @@ class Movie extends Component {
         <br></br>
         <div className="row" style={styles.principal}>
                 <Comments/>
+        </div>
+        <br></br>
+        <div className="row" style={styles.principal}>
+                <Related/>
         </div>
             </React.Fragment>
         )
