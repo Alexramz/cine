@@ -15,6 +15,22 @@ class Movie extends Component {
         this.consultarApiSingleMovie()
     }    
 
+    /*componentWillUpdate(){
+        this.shouldComponentUpdate()
+    }
+    shouldComponentUpdate = () => {
+        const { match }=this.props;
+        const { buscar } = this.state;
+        const id = match.params.id
+        
+        //const buscar = match.params.search
+        const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${match.params.search}&id=${id}`;
+        
+        fetch(url)
+        .then(resp => resp.json())
+        .then(res => this.setState({ objMovie: res.hits[0]}));
+    }*/
+    
     consultarApiSingleMovie=()=>{
         const { match }=this.props;
         const { buscar } = this.state;

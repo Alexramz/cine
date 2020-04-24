@@ -22,12 +22,13 @@ class Wrap extends Component{
     consultarApi=()=>{
         const { buscar, pagina } = this.state
         const { match } = this.props;
+        const numMovies = 16;
         let url;
         if(match.params.query == null){
-            url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=30&page=${pagina}`;
+            url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=${numMovies}&page=${pagina}`;
         }else{
             this.setState({ buscar: match.params.query})
-            url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${match.params.query}&per_page=30&page=${pagina}`;
+            url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${match.params.query}&per_page=${numMovies}&page=${pagina}`;
         }
         
         
