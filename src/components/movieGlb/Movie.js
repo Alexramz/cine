@@ -17,8 +17,10 @@ class Movie extends Component {
 
     consultarApiSingleMovie=()=>{
         const { match }=this.props;
+        const { buscar } = this.state;
         const id = match.params.id
-        const buscar = match.params.search
+        this.setState({buscar: match.params.search});
+        //const buscar = match.params.search
         const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&id=${id}`;
         
         fetch(url)
@@ -31,26 +33,13 @@ class Movie extends Component {
         this.props.history.push("/")
     } 
 
-    /*consultarApi=()=>{
-        const { buscar, pagina, objMovie } = this.state
-        
-        const url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=30&page=${pagina}`;
-        
-        fetch(url)
-        .then(resp=>resp.json())
-        .then(res=>this.setState({objMovie: res.hits}));
-
-        this.props.history.push(`/#/${objMovie}`)
-        //`/#/${objMovie}`
-      }*/
-
-      datosBusqueda = (termino) =>{
+    datosBusqueda = (termino) =>{
         this.props.history.push(`/${termino}`)
       } 
 
 
     render (){
-        const { objMovie }=this.state;
+        const { objMovie, buscar }=this.state;
         const styles = {
     
             img:{
@@ -84,7 +73,8 @@ class Movie extends Component {
         </div>
         <br></br>
         <div className="row" style={styles.principal}>
-                <Related/>
+                <Related
+                buscar={buscar}/>
         </div>
             </React.Fragment>
         )

@@ -1,9 +1,11 @@
 import React, {Component} from "react";
+import Lorem from "../../loremGlb/Lorem";
 
 class Description extends Component{
 
     render(){
         const {objMovie, styles} = this.props; 
+        
         return(
             <React.Fragment>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -11,6 +13,7 @@ class Description extends Component{
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <h1>{objMovie.tags}</h1>
+                    <Lorem/>
                 </div>
             </React.Fragment>
         )

@@ -24,9 +24,7 @@ class Principal extends Component{
                     {list.map(item=>(
                     <Imagen
                     key={item.id}
-                    id={item.id}
                     usuario={item}
-                    idMovie={idMovie}
                     buscar={buscar}
                     />
                     ))}
