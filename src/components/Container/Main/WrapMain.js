@@ -23,7 +23,7 @@ class Wrap extends Component{
         const { buscar, pagina } = this.state
         const { match } = this.props;
         let url;
-        if(match.params == undefined){
+        if(match.params.query == null){
             url=`https://pixabay.com/api/?key=16000304-4ffaeb7967a4a1732dc1f40a0&q=${buscar}&per_page=30&page=${pagina}`;
         }else{
             this.setState({ buscar: match.params.query})
