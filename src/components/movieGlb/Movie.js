@@ -7,6 +7,7 @@ import Related from "./components/Related";
 
 class Movie extends Component {
     state={
+        id: " ",
         buscar: " ",
         pagina: "1",
         objMovie: {}
@@ -76,6 +77,7 @@ class Movie extends Component {
         <br></br>
         <div className="row" style={styles.principal}>
             <Description
+            id = {objMovie.id}
             styles = {styles}
             objMovie= {objMovie}
             />
